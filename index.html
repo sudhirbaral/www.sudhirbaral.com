@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sudhir Baral | Cybersecurity Professional</title>
+
+  <style>
+    :root {
+      --color-primary: #22D3EE;
+      --color-primary-dark: #0891B2;
+      --color-background: #0F172A;
+      --color-surface: #1E293B;
+      --color-surface-light: #334155;
+      --color-text: #F1F5F9;
+      --color-text-secondary: #94A3B8;
+      --color-accent: #06B6D4;
+      --color-border: rgba(148, 163, 184, 0.2);
+      --shadow-glow: 0 0 20px rgba(34, 211, 238, 0.15);
+      --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Segoe UI", "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+      background: linear-gradient(135deg, var(--color-background) 0%, #1a2942 100%);
+      color: var(--color-text);
+      line-height: 1.7;
+      scroll-behavior: smooth;
+      min-height: 100vh;
+    }
+
+    /* Animated background effect */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at 20% 50%, rgba(34, 211, 238, 0.08) 0%, transparent 50%),
+                  radial-gradient(circle at 80% 80%, rgba(6, 182, 212, 0.06) 0%, transparent 50%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    header {
+      position: relative;
+      text-align: center;
+      padding: 3.5rem 1.5rem 2.5rem;
+      background: linear-gradient(135deg, #0b3954 0%, #1e6091 50%, #0d4f6e 100%);
+      color: white;
+      border-bottom: 3px solid var(--color-primary);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+      overflow: hidden;
+    }
+
+    header::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse"><path d="M 50 0 L 0 0 0 50" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+      opacity: 0.5;
+      pointer-events: none;
+    }
+
+    header h1 {
+      position: relative;
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
+      letter-spacing: -0.5px;
+      z-index: 1;
+    }
+
+    header p {
+      position: relative;
+      font-size: 1rem;
+      color: var(--color-primary);
+      font-weight: 500;
+      margin-top: 0.5rem;
+      z-index: 1;
+      line-height: 1.4;
+    }
+
+    .credentials {
+      position: relative;
+      display: inline-flex;
+      gap: 1rem;
+      margin-top: 1.2rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      z-index: 1;
+    }
+
+    .credential-badge {
+      display: inline-block;
+      padding: 0.5rem 1.2rem;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 25px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--color-primary);
+      transition: all 0.3s ease;
+    }
+
+    .credential-badge:hover {
+      background: rgba(34, 211, 238, 0.2);
+      border-color: var(--color-primary);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(34, 211, 238, 0.3);
+    }
+
+    main {
+      position: relative;
+      max-width: 1000px;
+      margin: 2.5rem auto 3rem;
+      padding: 0 1.5rem;
+      z-index: 1;
+    }
+
+    section {
+      background: var(--color-surface);
+      border-radius: 16px;
+      box-shadow: var(--shadow-card);
+      padding: 1.8rem;
+      margin-bottom: 1.5rem;
+      border: 1px solid var(--color-border);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 100%;
+      background: linear-gradient(180deg, var(--color-primary) 0%, var(--color-accent) 100%);
+    }
+
+    section:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-glow), var(--shadow-card);
+      border-color: rgba(34, 211, 238, 0.4);
+    }
+
+    h2 {
+      color: var(--color-primary);
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      padding-bottom: 0.6rem;
+      border-bottom: 2px solid var(--color-surface-light);
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+
+    h2::before {
+      content: '';
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      background: var(--color-primary);
+      border-radius: 50%;
+      box-shadow: 0 0 12px var(--color-primary);
+    }
+
+    h3 {
+      color: var(--color-primary);
+      font-size: 1.3rem;
+      margin-top: 1.5rem;
+      margin-bottom: 0.8rem;
+      font-weight: 600;
+    }
+
+    p {
+      margin: 0.8rem 0;
+      color: var(--color-text-secondary);
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    ul {
+      list-style: none;
+      padding-left: 0;
+      margin: 1rem 0;
+    }
+
+    ul li {
+      padding: 0.5rem 0 0.5rem 2rem;
+      color: var(--color-text-secondary);
+      position: relative;
+      line-height: 1.5;
+      transition: all 0.2s ease;
+      font-size: 0.95rem;
+    }
+
+    ul li::before {
+      content: '▹';
+      position: absolute;
+      left: 0;
+      color: var(--color-primary);
+      font-size: 1.5rem;
+      font-weight: bold;
+      transition: transform 0.2s ease;
+    }
+
+    ul li:hover {
+      color: var(--color-text);
+      padding-left: 2.5rem;
+    }
+
+    ul li:hover::before {
+      transform: translateX(5px);
+    }
+
+    .skill-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .skill-item {
+      background: var(--color-background);
+      padding: 0.9rem;
+      border-radius: 12px;
+      border: 1px solid var(--color-border);
+      text-align: center;
+      font-weight: 500;
+      color: var(--color-text);
+      transition: all 0.3s ease;
+      font-size: 0.9rem;
+    }
+
+    .skill-item:hover {
+      background: var(--color-surface-light);
+      border-color: var(--color-primary);
+      transform: scale(1.05);
+      box-shadow: 0 4px 16px rgba(34, 211, 238, 0.2);
+    }
+
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+      margin-top: 1.5rem;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem 1.5rem;
+      background: var(--color-background);
+      border-radius: 12px;
+      border: 1px solid var(--color-border);
+      transition: all 0.3s ease;
+      text-decoration: none;
+      color: var(--color-text-secondary);
+    }
+
+    .contact-item:hover {
+      border-color: var(--color-primary);
+      background: var(--color-surface-light);
+      transform: translateX(8px);
+      box-shadow: 0 4px 12px rgba(34, 211, 238, 0.2);
+    }
+
+    .contact-icon {
+      font-size: 1.5rem;
+      color: var(--color-primary);
+      min-width: 30px;
+      text-align: center;
+    }
+
+    .contact-link {
+      color: var(--color-primary);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.2s ease;
+    }
+
+    .contact-link:hover {
+      color: var(--color-accent);
+      text-decoration: underline;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      background: var(--color-surface);
+      color: var(--color-text-secondary);
+      border-top: 1px solid var(--color-border);
+      margin-top: 3rem;
+    }
+
+    footer p {
+      font-size: 0.95rem;
+    }
+
+    /* Ultra-wide monitors (32+ inches, 2K/4K) */
+    @media (min-width: 2560px) {
+      main {
+        max-width: 1600px;
+      }
+      
+      header h1 {
+        font-size: 4rem;
+      }
+      
+      header p {
+        font-size: 1.5rem;
+      }
+      
+      section {
+        padding: 2.5rem;
+      }
+      
+      h2 {
+        font-size: 2rem;
+      }
+      
+      p, ul li {
+        font-size: 1.1rem;
+      }
+    }
+
+    /* Large Desktop (27-32 inch monitors, 1920px-2559px) */
+    @media (min-width: 1920px) and (max-width: 2559px) {
+      main {
+        max-width: 1400px;
+      }
+      
+      header h1 {
+        font-size: 3.5rem;
+      }
+      
+      header p {
+        font-size: 1.3rem;
+      }
+      
+      section {
+        padding: 2.2rem;
+      }
+      
+      h2 {
+        font-size: 1.8rem;
+      }
+      
+      p, ul li {
+        font-size: 1.05rem;
+      }
+    }
+
+    /* Standard Desktop (16 inch laptops, 24" monitors, 1440px-1919px) */
+    @media (min-width: 1440px) and (max-width: 1919px) {
+      main {
+        max-width: 1200px;
+      }
+      
+      header h1 {
+        font-size: 3rem;
+      }
+      
+      header p {
+        font-size: 1.2rem;
+      }
+      
+      section {
+        padding: 2rem;
+      }
+      
+      h2 {
+        font-size: 1.6rem;
+      }
+    }
+
+    /* Laptop 13-15 inch (1024px - 1439px) */
+    @media (min-width: 1024px) and (max-width: 1439px) {
+      main {
+        max-width: 1000px;
+      }
+      
+      header {
+        padding: 3rem 1.5rem 2.5rem;
+      }
+      
+      header h1 {
+        font-size: 2.5rem;
+      }
+      
+      header p {
+        font-size: 1.05rem;
+      }
+      
+      section {
+        padding: 1.8rem;
+      }
+      
+      h2 {
+        font-size: 1.5rem;
+      }
+    }
+
+    /* iPad Pro and tablets (820px - 1023px) */
+    @media (min-width: 820px) and (max-width: 1023px) {
+      main {
+        max-width: 750px;
+        padding: 0 1.5rem;
+      }
+      
+      header {
+        padding: 3rem 1.5rem 2.5rem;
+      }
+      
+      header h1 {
+        font-size: 2.3rem;
+      }
+
+      header p {
+        font-size: 1rem;
+      }
+
+      section {
+        padding: 1.6rem;
+        margin-bottom: 1.3rem;
+      }
+
+      h2 {
+        font-size: 1.4rem;
+      }
+      
+      .skill-grid {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      }
+    }
+
+    /* Tablet (768px - 819px) */
+    @media (min-width: 768px) and (max-width: 819px) {
+      main {
+        padding: 0 1.5rem;
+      }
+      
+      header {
+        padding: 2.8rem 1.5rem 2.3rem;
+      }
+      
+      header h1 {
+        font-size: 2.2rem;
+      }
+
+      header p {
+        font-size: 1rem;
+      }
+
+      section {
+        padding: 1.5rem;
+        margin-bottom: 1.2rem;
+      }
+
+      h2 {
+        font-size: 1.3rem;
+      }
+      
+      p, ul li {
+        font-size: 0.9rem;
+      }
+
+      .skill-grid {
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      }
+    }
+
+    /* Small tablets and large phones (600px - 767px) */
+    @media (min-width: 600px) and (max-width: 767px) {
+      main {
+        padding: 0 1.2rem;
+        margin: 2rem auto 2.5rem;
+      }
+      
+      header {
+        padding: 2.5rem 1.2rem 2rem;
+      }
+      
+      header h1 {
+        font-size: 2rem;
+      }
+      
+      header p {
+        font-size: 0.95rem;
+      }
+
+      section {
+        padding: 1.3rem;
+        margin-bottom: 1.1rem;
+      }
+      
+      h2 {
+        font-size: 1.25rem;
+      }
+      
+      h3 {
+        font-size: 1.1rem;
+      }
+      
+      p, ul li {
+        font-size: 0.9rem;
+      }
+
+      .skill-grid {
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        gap: 0.9rem;
+      }
+    }
+
+    /* Mobile phones (max 599px) */
+    @media (max-width: 599px) {
+      header {
+        padding: 2.5rem 1rem 2rem;
+      }
+      
+      header h1 {
+        font-size: 1.75rem;
+      }
+      
+      header p {
+        font-size: 0.9rem;
+        line-height: 1.3;
+      }
+
+      main {
+        padding: 0 1rem;
+        margin: 2rem auto 2rem;
+      }
+
+      section {
+        padding: 1.2rem;
+        margin-bottom: 1rem;
+      }
+      
+      h2 {
+        font-size: 1.2rem;
+        margin-bottom: 0.8rem;
+      }
+      
+      h3 {
+        font-size: 1.05rem;
+      }
+      
+      p {
+        font-size: 0.88rem;
+        margin: 0.6rem 0;
+      }
+      
+      ul li {
+        font-size: 0.88rem;
+        padding: 0.4rem 0 0.4rem 1.8rem;
+      }
+
+      .credentials {
+        gap: 0.5rem;
+        margin-top: 1rem;
+      }
+
+      .credential-badge {
+        padding: 0.4rem 1rem;
+        font-size: 0.8rem;
+      }
+      
+      .skill-grid {
+        grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+        gap: 0.8rem;
+      }
+      
+      .skill-item {
+        padding: 0.7rem;
+        font-size: 0.85rem;
+      }
+      
+      .contact-item {
+        padding: 0.9rem 1.2rem;
+      }
+      
+      .contact-icon {
+        font-size: 1.3rem;
+      }
+      
+      footer {
+        padding: 1.5rem 1rem;
+      }
+      
+      footer p {
+        font-size: 0.85rem;
+      }
+    }
+
+    /* Extra small phones (max 390px) */
+    @media (max-width: 390px) {
+      header {
+        padding: 2rem 0.9rem 1.8rem;
+      }
+      
+      header h1 {
+        font-size: 1.5rem;
+      }
+      
+      header p {
+        font-size: 0.85rem;
+      }
+
+      main {
+        padding: 0 0.9rem;
+        margin: 1.8rem auto 1.8rem;
+      }
+
+      section {
+        padding: 1rem;
+      }
+      
+      h2 {
+        font-size: 1.1rem;
+      }
+      
+      p, ul li {
+        font-size: 0.85rem;
+      }
+
+      .skill-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Smooth animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    section {
+      animation: fadeInUp 0.6s ease-out;
+    }
+
+    section:nth-child(1) { animation-delay: 0.1s; }
+    section:nth-child(2) { animation-delay: 0.2s; }
+    section:nth-child(3) { animation-delay: 0.3s; }
+    section:nth-child(4) { animation-delay: 0.4s; }
+    section:nth-child(5) { animation-delay: 0.5s; }
+    section:nth-child(6) { animation-delay: 0.6s; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Sudhir Baral</h1>
+    <p>Cybersecurity Engineer | Cloud Security Specialist | Security Engineering &amp; Product Operations</p>
+    <div class="credentials">
+      <span class="credential-badge">CISSP</span>
+      <span class="credential-badge">CCSP</span>
+    </div>
+  </header>
+
+  <main>
+    <section id="about">
+      <h2>About Me</h2>
+      <p>
+        I'm a Cybersecurity Engineer with over 16 years of experience securing products, infrastructure,
+        and cloud environments across industries like aviation, aerospace, and healthcare.
+      </p>
+      <p>
+        Throughout my journey, I've helped organizations strengthen their security posture—designing resilient
+        architectures, driving product security operations, and leading initiatives that embed protection into
+        every layer of the technology stack.
+      </p>
+      <p>
+        Certified in CISSP and CCSP, I specialize in turning complex security challenges into practical, scalable
+        solutions. With deep expertise in Security Engineering, Endpoint Protection, Data Loss Prevention (DLP),
+        Forensic Engineering, Network, Infrastructure and Cloud Security, I design systems that are both resilient and
+        compliant. My experience spans leading platforms including Google Cloud Platform (GCP) and Microsoft Azure,
+        with a strong focus on compliance-driven architecture and data protection strategies.
+      </p>
+      <p>
+        I believe technology should serve people securely and responsibly. My professional philosophy is simple:
+        <em>Never settle; constantly evolve.</em>
+      </p>
+    </section>
+
+    <section id="expertise">
+      <h2>Core Expertise</h2>
+      <div class="skill-grid">
+        <div class="skill-item">Security Engineering</div>
+        <div class="skill-item">Cloud Security</div>
+        <div class="skill-item">Data Loss Prevention</div>
+        <div class="skill-item">Product Security Operation</div>
+        <div class="skill-item">Vulnerability Management</div>
+        <div class="skill-item">Python Automation</div>
+      </div>
+    </section>
+
+    <section id="certifications">
+      <h2>Certifications</h2>
+      <ul>
+        <li><strong>CISSP</strong> - Certified Information Systems Security Professional</li>
+        <li><strong>CCSP</strong> - Certified Cloud Security Professional</li>
+      </ul>
+    </section>
+
+    <section id="skills">
+      <h2>Technical Skills</h2>
+      <ul>
+        <li>Security Architecture &amp; Engineering</li>
+        <li>Cloud Security (AWS, Azure, GCP)</li>
+        <li>Data Loss Prevention (DLP) Solutions</li>
+        <li>Vulnerability Assessment</li>
+        <li>Infrastructure &amp; Network Security</li>
+        <li>Python Scripting &amp; Automation</li>
+        <li>Security Compliance &amp; Frameworks (ISO 27001, NIST)</li>
+      </ul>
+    </section>
+
+    <section id="education">
+      <h2>Education</h2>
+      <ul>
+        <li>
+          <strong>Master of Business Administration (MBA)</strong> —
+          <em>Punjab Technical University (PTU)</em>
+        </li>
+        <li>
+          <strong>Bachelor of Commerce (B.Com)</strong> —
+          <em>Utkal University, Odisha</em>
+        </li>
+      </ul>
+    </section>
+
+    <section id="contact">
+      <h2>Get In Touch</h2>
+      <div class="contact-info">
+        <a href="mailto:me@sudhirbaral.com" class="contact-item">
+          <span class="contact-icon">✉️</span>
+          <div>
+            <div style="color: var(--color-text); font-weight: 500;">Email</div>
+            <div class="contact-link">me@sudhirbaral.com</div>
+          </div>
+        </a>
+        <a href="https://sudhirbaral.com" target="_blank" rel="noopener noreferrer" class="contact-item">
+          <span class="contact-icon">🌐</span>
+          <div>
+            <div style="color: var(--color-text); font-weight: 500;">Website</div>
+            <div class="contact-link">sudhirbaral.com</div>
+          </div>
+        </a>
+        <a href="https://linkedin.com/in/sudhirbaral" target="_blank" rel="noopener noreferrer" class="contact-item">
+          <span class="contact-icon">💼</span>
+          <div>
+            <div style="color: var(--color-text); font-weight: 500;">LinkedIn</div>
+            <div class="contact-link">Connect with me</div>
+          </div>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Sudhir Baral. All rights reserved. | Cybersecurity Professional</p>
+  </footer>
+</body>
+</html>
