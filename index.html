@@ -5,7 +5,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/svg+xml" href="Work_logo.svg">
   <title>Sudhir Baral | Cybersecurity Professional</title>
-  <script>if (top !== self) top.location.replace(self.location);</script>
+  <meta http-equiv="Content-Security-Policy" content="frame-ancestors 'none';">
+
+  <style>
+    /* 2. Anti-Clickjacking: Hide content initially */
+    html { display: none; }
+
+    :root {
+      --color-primary: #22D3EE;
+      /* ... rest of your variables ... */
+    }
+    /* ... rest of your styles ... */
+  </style>
+
+  <script>
+    /* 3. Enhanced Frame Buster */
+    if (self === top) {
+      document.documentElement.style.display = 'block';
+    } else {
+      top.location = self.location;
+    }
+  </script>
 
   <style>
     :root {
